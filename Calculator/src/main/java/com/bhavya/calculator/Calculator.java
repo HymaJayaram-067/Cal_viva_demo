@@ -6,7 +6,7 @@ public class Calculator {
 
     public double squareRoot(double x) {
         if (x < 0) {
-            System.out.println("Imaginary roots");
+            System.out.println("Imaginar roots");
             return -1;
         }
         return Math.sqrt(x);

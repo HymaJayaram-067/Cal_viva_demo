@@ -72,19 +72,28 @@ pipeline {
 
         stage('Run Ansible Deployment') {
             steps {
-                dir('Calculator') {
+                dir('Calculator') {}
                 script {
-                    sh '''
-                    echo "Creating Ansible hosts.ini file..."
-                    echo "[servers]" > hosts.ini
-                    echo "${SERVER_IP} ansible_user=bhavyadora ansible_ssh_private_key_file=${SSH_KEY_PATH}" >> hosts.ini
-
-                    echo "Running Ansible Playbook..."
-                    ansible-playbook -i hosts.ini deploy.yml
-                    '''
+                ansiblePlaybook(
+                playbook: 'deploy.yml',
+                inventory: 'hosts.ini'
+                )
+                }}
                 }
-            }
-        }
+        //     steps {
+        //         dir('Calculator') {
+        //         script {
+        //             sh '''
+        //             echo "Creating Ansible hosts.ini file..."
+        //             echo "[servers]" > hosts.ini
+        //             echo "${SERVER_IP} ansible_user=bhavyadora ansible_ssh_private_key_file=${SSH_KEY_PATH}" >> hosts.ini
+
+        //             echo "Running Ansible Playbook..."
+        //             ansible-playbook -i hosts.ini deploy.yml
+        //             '''
+        //         }
+        //     }
+        // }
     }
     }
 
@@ -96,4 +105,4 @@ pipeline {
             echo "Pipeline failed! Check the logs for errors."
         }
     }
-}
+

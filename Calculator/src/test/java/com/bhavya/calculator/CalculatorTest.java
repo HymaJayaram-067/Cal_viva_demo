@@ -8,7 +8,7 @@ public class CalculatorTest {
 
     @Test
     public void testSquareRoot() {
-        assertEquals(5.0, calc.squareRoot(25), 0.001);
+        assertEquals(3.0, calc.squareRoot(9), 0.001);
         assertEquals(0.0, calc.squareRoot(0), 0.001);
         assertEquals(-1, calc.squareRoot(-1),0.001);
     }

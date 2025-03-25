@@ -4,8 +4,8 @@ pipeline {
     environment {
         MAVEN_HOME = "/usr/share/maven"
         PATH = "$PATH:$MAVEN_HOME/bin"
-        DOCKER_IMAGE = "bhavyadora/scientific-calculator"
-        SERVER_IP = "172.16.145.131"
+        DOCKER_IMAGE = "hyma/scientific-calculator"
+        SERVER_IP = "172.16.145.120"
         SSH_KEY_PATH = "/var/lib/jenkins/.ssh/id_rsa"
     }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/bhavyadora2002/Calculator.git'
+                git branch: 'main', url: 'https://github.com/HymaJayaram-067/Cal_viva_demo.git'
             }
         }
 
@@ -56,7 +56,7 @@ pipeline {
 
         stage('Upload to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: '7dae7e37-1f19-4ad0-a003-bfcb1f0f97ef', 
+                withCredentials([usernamePassword(credentialsId: '41ec9a68-a6a4-40f7-81ba-fac880a09eba', 
                                                   usernameVariable: 'DOCKER_USER', 
                                                   passwordVariable: 'DOCKER_PASS')]) {
                     sh '''

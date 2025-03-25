@@ -16,11 +16,11 @@
         enabled: yes
 
     - name: Pull Docker Image from Docker Hub
-      command: docker pull bhavyadora/scientific-calculator
+      command: docker pull hyma/scientific-calculator
 
     - name: Remove any existing container
       command: docker rm -f calculator_container
       ignore_errors: yes  
 
     - name: Run the Calculator Container
-      command: docker run -dit --name calculator_container bhavyadora/scientific-calculator
+      command: docker run -dit --name calculator_container hyma/scientific-calculator

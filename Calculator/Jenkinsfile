@@ -4,7 +4,7 @@ pipeline {
     environment {
         MAVEN_HOME = "/usr/share/maven"
         PATH = "$PATH:$MAVEN_HOME/bin"
-        DOCKER_IMAGE = "hyma/scientific-calculator"
+        DOCKER_IMAGE="hyma067/scientific-calculator"
         SERVER_IP = "172.16.145.120"
         SSH_KEY_PATH = "/var/lib/jenkins/.ssh/id_rsa"
     }

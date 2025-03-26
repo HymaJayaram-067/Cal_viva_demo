@@ -10,19 +10,23 @@ pipeline {
     }
 
     stages {
-        stage('Setup Permissions') {
-            steps {
-                script {
-                    sh '''
-                    echo "Granting permissions to Jenkins user.."
-                    sudo usermod -aG docker jenkins
+   stage('Setup Permissions') {
+    steps {
+        script {
+            try {
+                sh '''
+                    echo "Pre-configuring permissions (requires manual sudo setup first)"
+                    sudo usermod -aG docker jenkins || true
                     sudo mkdir -p /var/lib/jenkins/.ssh
                     sudo chown -R jenkins:jenkins /var/lib/jenkins/.ssh
                     sudo chmod 700 /var/lib/jenkins/.ssh
-                    '''
-                }
+                '''
+            } catch (err) {
+                echo "WARNING: Failed to set permissions. Ensure pre-configuration is done manually."
             }
         }
+    }
+}
 
         stage('Checkout Code') {
             steps {

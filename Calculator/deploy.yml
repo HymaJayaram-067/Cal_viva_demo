@@ -24,4 +24,4 @@
       ignore_errors: yes  
 
     - name: Run the Calculator Container
-      command: docker run -dit --name calculator_container hyma/scientific-calculator
+      command: docker run -dit --name calculator_container hyma067/scientific-calculator

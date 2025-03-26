@@ -16,7 +16,7 @@
         enabled: yes
 
     - name: Pull Docker Image from Docker Hub
-      command: hyma067/scientific-calculator
+      command: docker pull hyma067/scientific-calculator
 
 
     - name: Remove any existing container

@@ -60,7 +60,7 @@ pipeline {
 
         stage('Upload to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'e66a799b-f012-4b8b-be6d-21c8b0ca0575', 
+                withCredentials([usernamePassword(credentialsId: 'd5d64798-9138-4612-92d6-39b1d08f8b57', 
                                                   usernameVariable: 'DOCKER_USER', 
                                                   passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
